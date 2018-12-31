@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Times New Roman:300,300italic,400,400italic,700,700italic|menlo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="圣诞节前用Guava和内部框架写数据处理任务，因为不熟悉Java吃了不少苦头。假期宅家里偶然看java8-tutorial，对Java的印象比试图用Java写Leetcode时好了许多，顺便看掉了Guava的文档。Guava已有近十年历史，而且是以数据结构为主的工具库，读起来不那么惊艳，但还是有很多思路值得借鉴。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guava Quick Notes">
+<meta property="og:url" content="kophy.github.io/2018/12/25/guava-quick-notes/index.html">
+<meta property="og:site_name" content="kophy&#39;s blog">
+<meta property="og:description" content="圣诞节前用Guava和内部框架写数据处理任务，因为不熟悉Java吃了不少苦头。假期宅家里偶然看java8-tutorial，对Java的印象比试图用Java写Leetcode时好了许多，顺便看掉了Guava的文档。Guava已有近十年历史，而且是以数据结构为主的工具库，读起来不那么惊艳，但还是有很多思路值得借鉴。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-12-31T06:26:52.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Guava Quick Notes">
+<meta name="twitter:description" content="圣诞节前用Guava和内部框架写数据处理任务，因为不熟悉Java吃了不少苦头。假期宅家里偶然看java8-tutorial，对Java的印象比试图用Java写Leetcode时好了许多，顺便看掉了Guava的文档。Guava已有近十年历史，而且是以数据结构为主的工具库，读起来不那么惊艳，但还是有很多思路值得借鉴。">
+
+
+
+
+
+
+  <link rel="canonical" href="kophy.github.io/2018/12/25/guava-quick-notes/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Guava Quick Notes | kophy's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kophy's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="kophy.github.io/2018/12/25/guava-quick-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kophy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16597359">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kophy's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Guava Quick Notes
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-25 14:51:21" itemprop="dateCreated datePublished" datetime="2018-12-25T14:51:21-08:00">2018-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-30 22:26:52" itemprop="dateModified" datetime="2018-12-30T22:26:52-08:00">2018-12-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>圣诞节前用Guava和内部框架写数据处理任务，因为不熟悉Java吃了不少苦头。假期宅家里偶然看<a href="https://github.com/winterbe/java8-tutorial" target="_blank" rel="noopener">java8-tutorial</a>，对Java的印象比<del>试图</del>用Java写Leetcode时好了许多，顺便看掉了Guava的文档。<br>Guava已有近十年历史，而且是以数据结构为主的工具库，读起来不那么惊艳，但还是有很多思路值得借鉴。</p>
+<a id="more"></a>
+<h2 id="Using-avoiding-null"><a href="#Using-avoiding-null" class="headerlink" title="Using/avoiding null"></a>Using/avoiding null</h2><p>这篇很精彩，主要是举例说明null的歧义性和怎样避免用null。给的几个例子看得心虚：</p>
+<ul>
+<li>null作为Set/Map的key -&gt; 显示处理查询null的情况</li>
+<li>null作为Map的value -&gt; 用单独的Set记录value为null的key</li>
+<li>null作为处理情形 -&gt; 定义枚举值</li>
+</ul>
+<p>这些方法的确能压缩代码行数，但增加了使用者的思维负担，比如<code>Map.get(key)</code>返回null时可能是key不存在，也可能是key对应的value就是null。现在想增加readability的重点之一就是消除自认为显然的假定，short$\neq$simple。</p>
+<p><code>Optional&lt;T&gt;</code>是大势所趋。昨天和朋友聊RESTful的意义，r结论是很多封装是为了让编程时更不容易出错(hard to misuse)，深以为然。</p>
+<h2 id="Ordering"><a href="#Ordering" class="headerlink" title="Ordering"></a>Ordering</h2><p>文档中将<code>Ordering</code>形容为”fluent comparator“，将其和Java 8中的Comparator对比还是挺有意思的。<br>一个常见需求是多条件排序，假设有一个Book类的List要先按name排序，后按year排序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> year;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Java 8 Comparator</span></span><br><span class="line">books.sort(Comparator.comparing((Book x) -&gt; x.name)</span><br><span class="line">                .thenComparing((Book x) -&gt; x.year));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Guava Ordering</span></span><br><span class="line">Ordering&lt;Book&gt; byName = <span class="keyword">new</span> Ordering&lt;Book&gt;() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(@Nullable Book book1, @Nullable Book book2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> book1.name.compareTo(book2.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Ordering&lt;Book&gt; byYear = <span class="keyword">new</span> Ordering&lt;Book&gt;() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(@Nullable Book book1, @Nullable Book book2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> book1.year - book2.year;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">books.sort(byName.compound(byYear));</span><br></pre></td></tr></table></figure>
+<p>它们都提供了chaining，做法各有优劣。每个排序条件很简单时comparing/thenComparing很爽，但假设Book的name可能有书名号《》，比较的时候要先去掉，那comparing/thenComparing就没这么干净了；<code>Ordering</code>这时可读性更好，而且每个<code>Ordering</code>可以作为组件用于以后组装新<code>Ordering</code>。</p>
+<h2 id="Immutable-Collection"><a href="#Immutable-Collection" class="headerlink" title="Immutable Collection"></a>Immutable Collection</h2><p>个人看法这里immurtable的用词有点误导，当描述一个集合不可变时，直觉是里面的所有元素也不可变，但Guava的Immutable Collection中元素本身是可以修改的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Book book1 = <span class="keyword">new</span> Book(<span class="string">"book 1"</span>, <span class="number">2018</span>);</span><br><span class="line">Book book2 = <span class="keyword">new</span> Book(<span class="string">"book 2"</span>, <span class="number">2018</span>);</span><br><span class="line">Book book3 = <span class="keyword">new</span> Book(<span class="string">"book 3"</span>, <span class="number">2018</span>);</span><br><span class="line"></span><br><span class="line">ImmutableList&lt;Book&gt; immutableBooks = ImmutableList.of(book1, book2);</span><br><span class="line">book1.name = <span class="string">"renamed book 1"</span>;</span><br><span class="line">immutableBooks.get(<span class="number">1</span>).name = <span class="string">"renamed book 2"</span>;</span><br><span class="line">immutableBooks.add(book3);	<span class="comment">// UnsupportedOperationException</span></span><br></pre></td></tr></table></figure>
+<p>套用<a href="https://stackoverflow.com/questions/2185789/what-is-the-difference-between-googles-immutablelist-and-collections-unmodifiab" target="_blank" rel="noopener">ImmutableList and unmodifiableList</a>的解释：</p>
+<blockquote>
+<p>The immutability is only applied to the amount and references of the objects in the Collection, and does not address the mutability of objects you put in the Collection.</p>
+</blockquote>
+<pre class="mermaid">graph LR
+                subgraph Books
+                book1-->book2
+                end
+                book1-->Object[Book1 Object]
+                immutableBooks-->book1</pre>
+
+<p>用C++解释的话图中book1和book2都是const指针，无法让book1指向别的Book对象，但却可以通过book1修改其指向的对象；Guava的Immutable Collection相当于保存了固定数量、固定值的const指针。<br>这么解释<code>ImmutableList</code>还是合理的，而<code>UnmodifiableList</code>套了一层wrapper就称为不可变实在太甜。</p>
+<p>实现元素不可变的方法很多，做法之一是用<a href="https://github.com/google/auto" target="_blank" rel="noopener">auto</a>中的<code>@AutoValue</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AutoValue</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">year</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Book <span class="title">create</span><span class="params">(String name, <span class="keyword">int</span> year)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AutoValue_Book(name, year);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>文档里提到Immutable Collection的优点，一个是thread safety(不完全正确，元素可能可变)，一个是更加 memory efficient，比如Map不需要可变操作的话可以用有序数组代替树结构。</p>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><ul>
+<li><code>PeekingIterator</code>实现了<code>peek()</code></li>
+<li><code>Cache</code>类的几种eviction方法里基于size和time常见，reference-based eviction第一次见到</li>
+<li><code>Range</code>完善了一般的<code>pair&lt;int, int&gt;</code>实现，避免开闭区间的假定问题</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/23/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/16597359"
+                alt="kophy" />
+            
+              <p class="site-author-name" itemprop="name">kophy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-avoiding-null"><span class="nav-number">1.</span> <span class="nav-text">Using/avoiding null</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ordering"><span class="nav-number">2.</span> <span class="nav-text">Ordering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Immutable-Collection"><span class="nav-number">3.</span> <span class="nav-text">Immutable Collection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Others"><span class="nav-number">4.</span> <span class="nav-text">Others</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kophy</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.6.0</div>
+
+
+
+
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({startOnLoad:true, theme: "neutral"});
+    }
+  </script>
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
