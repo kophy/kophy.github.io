@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.5.0"
+    "version": "3.9.0"
   },
   "dependencies": {
-    "hexo": "^3.2.0",
+    "hexo": "^3.9.0",
     "hexo-deployer-git": "^0.3.1",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^0.1.4",
@@ -17,6 +17,8 @@
     "hexo-renderer-marked": "^0.3.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "hexo-tag-mermaid": "^1.0.0"
+    "hexo-tag-mermaid": "^1.0.0",
+    "nunjucks": "^3.2.0",
+    "yarn": "^1.22.4"
   }
 }
