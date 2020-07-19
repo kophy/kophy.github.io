@@ -1,5 +1,8 @@
 node_modules/
 public/
-theme/
+
+themes
+themes/*
+
 .deploy_git/
 .DS_Store
