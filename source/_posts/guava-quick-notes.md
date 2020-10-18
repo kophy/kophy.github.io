@@ -2,7 +2,7 @@
 title: Guava Quick Notes
 date: 2018-12-25 14:51:21
 mathjax: true
-tags:
+tags: 编程
 ---
 
 圣诞节前用Guava和内部框架写数据处理任务，因为不熟悉Java吃了不少苦头。假期宅家里偶然看[java8-tutorial](https://github.com/winterbe/java8-tutorial)，对Java的印象比~~试图~~用Java写Leetcode时好了许多，顺便看掉了Guava的文档。
