@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kophy&#39;s blog</title>
+  <icon>https://kophy.github.io/icon.png</icon>
+  <subtitle>Darlin&#39; 夢が叶ったの</subtitle>
+  <link href="https://kophy.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://kophy.github.io/"/>
+  <updated>2022-01-01T07:53:42.141Z</updated>
+  <id>https://kophy.github.io/</id>
+  
+  <author>
+    <name>kophy</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>My 2021</title>
+    <link href="https://kophy.github.io/2021/12/30/my-2021/"/>
+    <id>https://kophy.github.io/2021/12/30/my-2021/</id>
+    <published>2021-12-31T00:47:50.000Z</published>
+    <updated>2022-01-01T07:53:42.141Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;睁眼，便是年末。&lt;br&gt;说来可耻，大半年来失去了活着的实感——算是斟酌用词，毕竟没有在路上撞泥头车的冲动，也没有生而为人我很抱歉的劣等感。假如生活赋予的任务是在海滩堆起沙堡，我觉得眼前的半成品沙堡和未来的每把沙子都索然无味，于是握着沙子站在原地。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021/05月记</title>
+    <link href="https://kophy.github.io/2021/05/30/2021-05-summary/"/>
+    <id>https://kophy.github.io/2021/05/30/2021-05-summary/</id>
+    <published>2021-05-31T05:29:10.000Z</published>
+    <updated>2021-12-30T23:58:55.974Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近尽是让人感慨的事情，高潮则是周六早晨去SFO机场送相识十年的朋友Q回国，回家煮方便面时心中只有一句「知交半零落」。&lt;br&gt;时间一刻都不会停止前进，我们只是在浪潮中，被裹挟向未知的地方罢了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021/04月记</title>
+    <link href="https://kophy.github.io/2021/04/30/2021-04-summary/"/>
+    <id>https://kophy.github.io/2021/04/30/2021-04-summary/</id>
+    <published>2021-05-01T06:18:07.000Z</published>
+    <updated>2021-12-30T23:58:55.973Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;「四月」两个字就会让人想到春天。不是新冠疫情的话大概会去西雅图看樱花吧——希望明年能去。&lt;br&gt;这两个月为各种各样的事情奔波忙碌，虽然每件单独拿出来都不是特别麻烦，但放在一起就很考验人multithreading和one-pass processing的能力。&lt;del&gt;上个月的月记就是在这钟心态下鸽的。&lt;/del&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021/02月记</title>
+    <link href="https://kophy.github.io/2021/02/26/2021-02-summary/"/>
+    <id>https://kophy.github.io/2021/02/26/2021-02-summary/</id>
+    <published>2021-02-27T00:53:15.000Z</published>
+    <updated>2021-12-30T23:58:55.973Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt; 这个月的体验和上个月不同，工作、买房各种事情都有点ぬるぬる的不清爽感。过去的话这时其实会选择不写总结，但今年想试着忠实地记录发生的事情——好坏都是生活的一部分。&lt;br&gt;不过这个月确实很单调，加上买房的各种细节想在定下来之后完整写一篇文章，所以这篇月结会非常短，就当是稍长的生存确认吧。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021/01月记</title>
+    <link href="https://kophy.github.io/2021/01/03/2021-01-summary/"/>
+    <id>https://kophy.github.io/2021/01/03/2021-01-summary/</id>
+    <published>2021-01-04T05:08:35.000Z</published>
+    <updated>2021-12-30T23:58:55.973Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;新年新气象，今年打算把过去也&lt;del&gt;偶尔&lt;/del&gt;会写的每月记录写得正式一点。&lt;br&gt;本来打算把每个月里遇到的、有趣的关键词组合起来，变成中二的标题，但20后半的人还是不玩这套了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My 2020</title>
+    <link href="https://kophy.github.io/2020/12/26/my-2020/"/>
+    <id>https://kophy.github.io/2020/12/26/my-2020/</id>
+    <published>2020-12-27T00:31:19.000Z</published>
+    <updated>2021-12-30T23:58:55.989Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今年定了5篇博客的目标。其实最近工作原因搞Poisson Bootstrap，本打算认真写篇，考虑到要打大堆公式…还是轻松地写篇年度总结好了。&lt;br&gt;拿年度总结凑数就不太讲武德，毕竟总能写出点东西来。不过有什么关系呢，逃避可耻但有用啊。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The XXX Engineer</title>
+    <link href="https://kophy.github.io/2020/11/26/the-xxx-engineer/"/>
+    <id>https://kophy.github.io/2020/11/26/the-xxx-engineer/</id>
+    <published>2020-11-26T23:06:28.000Z</published>
+    <updated>2021-12-30T23:58:55.995Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;整个11月都尽量从现实中抽离，刻意避免较「硬」的阅读思考，于是读了两本「软」一些的书，The Pragmatic Programmer（TPP）和The Effective Engineer（TEE），个人评分在7分。恰逢年底有几件重要的事情，在记忆被覆盖前先dump一下。&lt;br&gt;标题没什么特别的意义，只是为了表现各种可能的形式词，毕竟玩《千面英雄》梗写出The Engineer with a Thousand Faces还是过于中二了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+    <category term="读书笔记" scheme="https://kophy.github.io/tags/读书笔记/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>中秋杂谈</title>
+    <link href="https://kophy.github.io/2020/10/17/mid-autumn-updates/"/>
+    <id>https://kophy.github.io/2020/10/17/mid-autumn-updates/</id>
+    <published>2020-10-17T19:39:41.000Z</published>
+    <updated>2021-12-30T23:58:55.989Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;中秋已经过去一段时间了，但时节很适合作为阶段的period，姑且当回标题党。&lt;br&gt;近况简单总结，从夏末开始因为工作和生活问题陷入了长时间的低潮，直到近两周才慢慢恢复，原因一方面是通过努力解决直接困扰我的问题，还有做了许多其它事情收获了各种各样的经历。&lt;br&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于不用AWS的我去了考AWS证书这件事</title>
+    <link href="https://kophy.github.io/2020/07/18/aws-cloud-practitioner/"/>
+    <id>https://kophy.github.io/2020/07/18/aws-cloud-practitioner/</id>
+    <published>2020-07-19T00:23:55.000Z</published>
+    <updated>2021-12-30T23:58:55.988Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;时隔两周的生存确认，今日もかわいい。&lt;br&gt;这周五考了AWS最基本的证书Cloud Practitioner，这篇比起Kaggle那次正经的总结，倒不如说是色々な吐槽合集。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="编程" scheme="https://kophy.github.io/tags/编程/"/>
+    
+    <category term="架构" scheme="https://kophy.github.io/tags/架构/"/>
+    
+    <category term="AWS" scheme="https://kophy.github.io/tags/AWS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>M5 Forecasting Accuracy</title>
+    <link href="https://kophy.github.io/2020/07/02/m5-forecasting/"/>
+    <id>https://kophy.github.io/2020/07/02/m5-forecasting/</id>
+    <published>2020-07-03T06:13:40.000Z</published>
+    <updated>2021-12-30T23:58:55.989Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近想复习一下python数据处理和机器学习库（pandas/numpy/sklearn/...），于是找了个Kaggle比赛实战。因为以复习为主，心理准备是打到前50%比一半的人好就不算耻辱下播，结果前30%算是超水平发挥了。一方面是之前朋友的建议，一方面是自己也觉得一个月断断续续投入了不少精力，还是有必要总结一下收获。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>My 2018</title>
+    <link href="https://kophy.github.io/2018/12/30/my-2018/"/>
+    <id>https://kophy.github.io/2018/12/30/my-2018/</id>
+    <published>2018-12-30T20:40:31.000Z</published>
+    <updated>2021-12-30T23:58:55.989Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;年末在Amazon Rentals上重温哈利波特，想起知乎上的说法“火焰杯是童年的最后余晖，凤凰社则是冰冷的成人世界轰然洞开”。2018年对我没那么夸张，但也是从学生到社畜的转变。3月毕业，6月入职，觉得还没在Mountain View住多久，半年时间就过去了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://kophy.github.io/tags/杂谈/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guava Quick Notes</title>
+    <link href="https://kophy.github.io/2018/12/25/guava-quick-notes/"/>
+    <id>https://kophy.github.io/2018/12/25/guava-quick-notes/</id>
+    <published>2018-12-25T22:51:21.000Z</published>
+    <updated>2021-12-30T23:58:55.988Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;圣诞节前用Guava和内部框架写数据处理任务，因为不熟悉Java吃了不少苦头。假期宅家里偶然看&lt;a href=&quot;https://github.com/winterbe/java8-tutorial&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;java8-tutorial&lt;/a&gt;，对Java的印象比&lt;del&gt;试图&lt;/del&gt;用Java写Leetcode时好了许多，顺便看掉了Guava的文档。&lt;br&gt;Guava已有近十年历史，而且是以数据结构为主的工具库，读起来不那么惊艳，但还是有很多思路值得借鉴。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="编程" scheme="https://kophy.github.io/tags/编程/"/>
+    
+  </entry>
+  
+</feed>

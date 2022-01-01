@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|IBM Plex Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kophy.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="「四月」两个字就会让人想到春天。不是新冠疫情的话大概会去西雅图看樱花吧——希望明年能去。这两个月为各种各样的事情奔波忙碌，虽然每件单独拿出来都不是特别麻烦，但放在一起就很考验人multithreading和one-pass processing的能力。上个月的月记就是在这钟心态下鸽的。">
+<meta name="keywords" content="杂谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021&#x2F;04月记">
+<meta property="og:url" content="https://kophy.github.io/2021/04/30/2021-04-summary/index.html">
+<meta property="og:site_name" content="kophy&#39;s blog">
+<meta property="og:description" content="「四月」两个字就会让人想到春天。不是新冠疫情的话大概会去西雅图看樱花吧——希望明年能去。这两个月为各种各样的事情奔波忙碌，虽然每件单独拿出来都不是特别麻烦，但放在一起就很考验人multithreading和one-pass processing的能力。上个月的月记就是在这钟心态下鸽的。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://kophy.github.io/2021/04/30/2021-04-summary/ninja.png">
+<meta property="og:updated_time" content="2021-12-30T23:58:55.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2021&#x2F;04月记">
+<meta name="twitter:description" content="「四月」两个字就会让人想到春天。不是新冠疫情的话大概会去西雅图看樱花吧——希望明年能去。这两个月为各种各样的事情奔波忙碌，虽然每件单独拿出来都不是特别麻烦，但放在一起就很考验人multithreading和one-pass processing的能力。上个月的月记就是在这钟心态下鸽的。">
+<meta name="twitter:image" content="https://kophy.github.io/2021/04/30/2021-04-summary/ninja.png">
+
+<link rel="canonical" href="https://kophy.github.io/2021/04/30/2021-04-summary/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>2021/04月记 | kophy's blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172940044-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-172940044-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="kophy's blog" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="kophy's blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kophy's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Darlin' 夢が叶ったの</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kophy.github.io/2021/04/30/2021-04-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16597359">
+      <meta itemprop="name" content="kophy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kophy's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2021/04月记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-30 23:18:07" itemprop="dateCreated datePublished" datetime="2021-04-30T23:18:07-07:00">2021-04-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-30 15:58:55" itemprop="dateModified" datetime="2021-12-30T15:58:55-08:00">2021-12-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>「四月」两个字就会让人想到春天。不是新冠疫情的话大概会去西雅图看樱花吧——希望明年能去。<br>这两个月为各种各样的事情奔波忙碌，虽然每件单独拿出来都不是特别麻烦，但放在一起就很考验人multithreading和one-pass processing的能力。<del>上个月的月记就是在这钟心态下鸽的。</del></p>
+<a id="more"></a>
+<h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>提过的两尊boss其实是Snapchat和Facebook，结果是Snapchat失败，Facebook通过。关于面试之前的博客里总结得差不多了，算法和系统设计都不会太难，重要的是交流——直接的behavior question，间接的答技术题时反应和最后问面试官问题——通过交流展现自己拥有对方寻求的素质，面试的本质是一种推销。</p>
+<p>到此为止年度面试之旅算是告一段落。收到的offer相比现在工资涨幅不大，加上最近的EB2/EB3进度很快，就先在Google继续干下去吧。有点遗憾的是疫情期间大家都是远程面试，不能实地参观各公司，顺便蹭顿饭搞点贴纸之类的纪念品，反而被迫试用了一堆聊天软件。</p>
+<h2 id="买房-amp-后续"><a href="#买房-amp-后续" class="headerlink" title="买房 &amp; 后续"></a>买房 &amp; 后续</h2><p>经历大量实地看房、读disclosures和出offer失败后充分理解了湾区房市的雷场本质，以及不离开湾区就要学会与之共存的事实。当时机缘巧合，一栋我原本出offer失败的房子获胜买家退出，于是我确认了担心的噪音问题后买下了。四月搞定贷款完成过户，因为是PUD产权的老townhouse，算是在宇宙中心有了一块小小的土地。</p>
+<p>整体来说，买房过程还是挺顺利的——当我调整预期后，一度失去的房子又给了我购买机会；另一方面，遇到的buyer agent，loan officer甚至seller都是比较好的人。可以阴暗地想买房过程中这些人的利益相同，但buyer agent和loan officer半夜弄文档确保timeline，seller不声不响地把房检报告里的问题都修了（房产交易没规定买卖哪方负责修）也是事实。有朋友经常吐槽美国是agent社会，但agent确实为你省却了繁琐的工作，甚至抵挡了很多负面情绪——事情是多面的，我们可以选择去看哪些面。</p>
+<p>买房后主要是做两件事情：一是装修，本着装修是无底洞凑合万事兴的心态，最大的工程是把卧室的地毯换成了laminate地板；二是出租，找完租客后因为网上没有比较好的合同模板，于是自己整理了一份，5月我和租客会先后搬过去<del>泉氏酒店，堂堂开业</del>。当然之后还有搬家、装空调、院子地漏等等事情要操心，homeowner算不算一份副业呢？</p>
+<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>之前的项目被砍后经过几个月的低迷和心不在焉（面试+买房），手上的新项目开始步入正规，这两周偶尔半夜发代码还被经理在1:1中关心有没有overload。嘛，也不是workaholic，只是「再出发」的感觉让人有些兴奋。</p>
+<p>PERF的结果没什么意外是CME，毕竟promo后马上得EE以上rating是很难的，跟经理表示that&#39;s expected后笑对画饼。其实去年promo时的感慨之一是生活的礼物还是在准备好接受的时候收到比较好，早一个cycle升级的话恐怕要狂到被锤。不管领诺许诺多快能升到next level，peer如何在无谓工作上内卷，自己的侧重点还是应该放在达成Senior Software Engineer的能力——&quot;focus on growth, not promo&quot;。</p>
+<p>总之，手上的项目量大管饱，夏天还要带intern，经理和peer的反馈也都很正面，把合理的时间精力投入工作吧。</p>
+<h2 id="ACG"><a href="#ACG" class="headerlink" title="ACG"></a>ACG</h2><p>最近没什么心思读书，虽然零零散散地读着，但只看完了一本《猎药师》。新开的《美国反对美国》读了几章，想读英文的东西换换脑子，于是又暂停了。人觉得疲劳的时候就想看番——大概跟去年夏天一周看完钢炼的状态差不多。</p>
+<p><strong>进击的巨人</strong></p>
+<p>多年前看到莱纳和贝尔托特叛变时觉得太扯了就没看下去，得知139话结局烂尾网上骂声一片后，作为资深烂片爱好者必然要补啊，于是<del>在工作最忙的</del>一周把几季的剧情补完了。说实话骂得狠的人是期待太高，到地鸣发动就没什么余地了，不要在漫画中寻找世界和平的解决方案啊。</p>
+<p>撇开结局不谈，故事还是有很多高光点的，特别是几段自白——尤弥尔（104期）在星空下恢复成人类，贝尔托特飞上高空变身，旁观者基斯转述卡露拉的话，配上音乐很震撼。</p>
+<p><strong>体操武士</strong></p>
+<p>本着随便看看的心态点开的番，没想到是意外惊喜。剧情简单地讲，曾经辉煌的体操老将城（JO）太郎因伤病和长期赛绩不佳被规劝退役，但和女儿小玲旅游时邂逅忍者莱欧，最后时刻决定按自己的想法「再坚持一下」。复出过程算是王道燃向剧情，接受身体状态下降的现实改变表演风格，意识到他人对自己支撑，转而也去支撑他人，同自己的过去和解。莱欧一直鼓励城太郎则是因为小时候被城太郎的体操震撼——剧情中段我就在吐槽新警察故事了。</p>
+<p>朴素的故事（城太郎最后超越自己是从空中转体三圈加到四圈）里有很多值得体味的东西——前浪怎样中年危机，可能失败也要去竞争的勇气，重视家人和朋友，加上可爱的小玲和搞笑的吉祥物BB，是部适合在消沉时看的片子。</p>
+<p><img src="ninja.png" width="70%" title="Ninja!"></p>
+<hr>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ul>
+<li>最近开始每两周去做一次正骨（chiropractic），保险报销后每次$40。骨骼和肌肉状态有多大改善不清楚（本身症状不算严重），但之前有大腿根部酸的问题，正骨以及按建议改善坐姿后，确实没怎么犯了。</li>
+<li>4月下旬去打了第一针Pfizer疫苗，症状只是左臂酸痛了几天。看一亩三分地里似乎第二针的反应挺剧烈，和医生聊起后他推荐提前一周开始吃维生素C和D3，不过给的剂量似乎是推荐剂量的10倍<del>致死量</del>。</li>
+<li>新家卧室可以用现在的家具，书房得新买。在Amazon上买了桌子办公椅书架寄过来自己装——$65/件的assembly service太迷了。网购家具都附赠工具，流程也不复杂，最惨的经历是装竹制鞋柜时手指被刨得不够光的板子扎了几根竹刺。干手工活还是应该搞副厚手套。</li>
+<li>打通了多娜多娜，年轻人的第一部黄油。</li>
+<li>带着没玩过Minecraft的朋友入门，以前只玩过生存模式，转到创造模式后试了铁路、水电梯之类需要大量材料的玩法。</li>
+<li>为了改善坐姿搞了显示器和键盘（之前直接用笔记本，肩膀是向内紧绷的状态），<del>给自己放纵的理由</del>买了一青一红两个机械键盘，写文章时青轴的打字机感确实愉快。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/杂谈/" rel="tag"># 杂谈</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/26/2021-02-summary/" rel="prev" title="2021/02月记">
+      <i class="fa fa-chevron-left"></i> 2021/02月记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/30/2021-05-summary/" rel="next" title="2021/05月记">
+      2021/05月记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  
+  <div class="comments">
+  <script src="https://utteranc.es/client.js" repo="kophy/comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+  </div>
+  
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试"><span class="nav-number">1.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#买房-amp-后续"><span class="nav-number">2.</span> <span class="nav-text">买房 &amp; 后续</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作"><span class="nav-number">3.</span> <span class="nav-text">工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACG"><span class="nav-number">4.</span> <span class="nav-text">ACG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">5.</span> <span class="nav-text">其它</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kophy"
+      src="https://avatars0.githubusercontent.com/u/16597359">
+  <p class="site-author-name" itemprop="name">kophy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kophy" title="GitHub → https://github.com/kophy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kophy@protonmail.com" title="E-Mail → mailto:kophy@protonmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kophy__" title="Twitter → https://twitter.com/kophy__" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/i2umi" title="Telegram → https://t.me/i2umi" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kophy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'neutral',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
