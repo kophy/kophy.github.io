@@ -178,7 +178,7 @@ body {
   background: var(--body-bg-color);
   color: var(--text-color);
   font-family: 'Noto Serif SC', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 0.6em;
+  font-size: 0.7em;
   line-height: 2;
 }
 @media (max-width: 991px) {
@@ -416,7 +416,7 @@ pre {
 }
 pre,
 code {
-  font-family: 'IBM Plex Mono', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  font-family: 'JetBrains Mono', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
   background: #eee;
@@ -1193,7 +1193,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e836e8;
+  background: #daffd5;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2391,7 +2391,6 @@ mjx-container + br {
   box-sizing: border-box;
   color: var(--text-color);
   width: 240px;
-  opacity: 0;
 }
 .sidebar-inner.affix {
   position: fixed;
